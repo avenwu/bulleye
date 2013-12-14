@@ -112,8 +112,14 @@
 
 -(IBAction)startOver
 {
+    CATransition *trasition = [CATransition animation];
+    trasition.type = kCATransitionFade;
+    trasition.duration = 1;
+    trasition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    
     [self startNewGame];
     [self updatelabels];
+    [self.view.layer addAnimation:trasition forKey:nil];
 }
 
 -(BOOL)prefersStatusBarHidden
